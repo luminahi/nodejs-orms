@@ -1,4 +1,4 @@
-# Awesome Project Build with TypeORM
+# Using TypeORM with SQLite and ESM
 
 Steps to run this project:
 
