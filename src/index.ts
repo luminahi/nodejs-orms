@@ -1,8 +1,16 @@
 import { AppDataSource } from "./data-source.js";
+import { Car } from "./entity/Car.js";
 import { User } from "./entity/User.js";
 
 AppDataSource.initialize()
     .then(async () => {
+        console.log("Inserting a new car into the database...");
+        const car = new Car();
+        car.make = "toyota";
+        car.model = "corolla";
+        await AppDataSource.manager.save(car);
+        console.log("new car saved - new id is: " + car.id);
+
         console.log("Inserting a new user into the database...");
         const user = new User();
         user.firstName = "Timber";
