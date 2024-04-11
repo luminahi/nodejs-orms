@@ -1,5 +1,5 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
-import { TeacherRegistryCode } from "./TeacherRegistryCode";
+import { TeacherRegistryCode } from "./TeacherRegistryCode.js";
 
 const sequelize = new Sequelize({
     dialect: "sqlite",
