@@ -51,3 +51,30 @@ const registries = await TeacherRegistryCode.findAll({
 teachers.forEach((value) => console.log(value.toJSON()));
 console.log("================================");
 registries.forEach((value) => console.log(value.toJSON()));
+
+// Lazy Loading
+
+console.log("\n\n=========Lazy=Loading==========");
+
+const lazyTeacherLoad = await Teacher.findOne({
+    where: { name: "Lucas Neto" },
+});
+
+console.log("===================");
+const registry = await lazyTeacherLoad?.getTeacherRegistryCode();
+console.log(registry?.toJSON());
+
+console.log("=========Lazy=Loading==========\n");
+
+// Eager Loading
+
+console.log("\n=========Eager=Loading=========");
+
+const eagerTeacherLoad = await Teacher.findOne({
+    where: { name: "Lucas Neto" },
+    include: TeacherRegistryCode,
+});
+
+console.log(eagerTeacherLoad?.toJSON());
+
+console.log("=========Eager=Loading=========");

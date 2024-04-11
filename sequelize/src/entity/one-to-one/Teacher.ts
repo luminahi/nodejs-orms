@@ -1,11 +1,15 @@
 import { Model, DataTypes, Sequelize } from "sequelize";
+import { TeacherRegistryCode } from "./TeacherRegistryCode";
 
 const sequelize = new Sequelize({
     dialect: "sqlite",
     storage: "db.sqlite",
 });
 
-class Teacher extends Model {}
+class Teacher extends Model {
+    declare name: string;
+    declare getTeacherRegistryCode: () => Promise<TeacherRegistryCode>;
+}
 
 Teacher.init(
     {
